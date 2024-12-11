@@ -11,7 +11,7 @@ def Insertdata(request):
     email=request.POST['email']
     contact=request.POST['contact']
 
-    newuser = student.objects.create(Firstname=fname,Lastname=lname, 
+    newuser = student.objects.create(FirstName=fname,LastName=lname, 
                                      Email=email, Contact=contact)
     
-    return render('show.html')
+    return render(request, 'show.html')
