@@ -10,8 +10,15 @@ def Insertdata(request):
     lname=request.POST['lname']
     email=request.POST['email']
     contact=request.POST['contact']
+    
 
     newuser = student.objects.create(FirstName=fname,LastName=lname, 
-                                     Email=email, Contact=contact)
+                                     Email=email, Contact=contact
+                                     )
     
     return render(request, 'show.html')
+
+def ShowPage(request):
+
+    all_data = student.objects.all()
+    return render(request, 'show.html', {'key1': all_data})
