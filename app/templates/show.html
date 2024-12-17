@@ -34,6 +34,7 @@
         <td>{{i.LastName}}</td>
         <td>{{i.Email}}</td>
         <td>{{i.Contact}}</td>
+        
         <td>
           <form name='EditForm' action="{% url 'editpage' pk=i.id %}" method="post">
             {% csrf_token %}
@@ -41,14 +42,15 @@
             <input type="submit" value="Edit">
           </form>
         </td>
+
         <td>
-          <form name='DeleteForm' action="" method="post">
+          <form name='DeleteForm' action="{% url 'delete' pk=i.id %}" method="post">
             {% csrf_token %}
 
             <input type="submit" value="Delete">
           </form>
         </td>
-        <td></td>
+        
       </tr>
       {% endfor %}
     </tbody>

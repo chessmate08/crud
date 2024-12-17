@@ -42,3 +42,9 @@ def UpdateData(request, pk):
 
     udata.save()
     return redirect('showpage')
+
+
+def DeleteData(request, pk):
+    udata=student.objects.get(id=pk)
+    udata.delete()
+    return redirect('showpage')

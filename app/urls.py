@@ -6,5 +6,6 @@ urlpatterns = [
     path('insert/', Insertdata, name='insert'),
     path('showpage/', ShowPage, name='showpage'),
     path('editpage/<int:pk>', EditPage, name='editpage'),
-    path('Update/<int:pk>', UpdateData, name='Update')
+    path('Update/<int:pk>', UpdateData, name='Update'),
+    path('delete/<int:pk>',DeleteData, name='delete' )
 ]
