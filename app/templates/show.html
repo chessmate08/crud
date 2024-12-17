@@ -16,20 +16,39 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>Id</th>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
         <th>Contact</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead>
     {% if key1 %}
     <tbody>
-      {% for i in key1%}
+      {% for i in key1 %}
       <tr>
         <td>{{i.id}}</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>{{i.FirstName}}</td>
+        <td>{{i.LastName}}</td>
+        <td>{{i.Email}}</td>
+        <td>{{i.Contact}}</td>
+        <td>
+          <form name='EditForm' action="{% url 'editpage' pk=i.id %}" method="post">
+            {% csrf_token %}
+
+            <input type="submit" value="Edit">
+          </form>
+        </td>
+        <td>
+          <form name='DeleteForm' action="" method="post">
+            {% csrf_token %}
+
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+        <td></td>
       </tr>
       {% endfor %}
     </tbody>

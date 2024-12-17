@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 # Create your views here.
 def InsertPageView(request):
@@ -13,12 +13,32 @@ def Insertdata(request):
     
 
     newuser = student.objects.create(FirstName=fname,LastName=lname, 
-                                     Email=email, Contact=contact
-                                     )
+                                     Email=email, Contact=contact)
     
-    return render(request, 'show.html')
+    return redirect("showpage")
+
+
 
 def ShowPage(request):
 
     all_data = student.objects.all()
     return render(request, 'show.html', {'key1': all_data})
+
+
+
+
+
+def EditPage(request, pk):
+    get_data=student.objects.get(id=pk)
+    return render(request, 'edit.html', {'key2': get_data})
+
+
+def UpdateData(request, pk):
+    udata = student.objects.get(id=pk)
+    udata.FirstName = request.POST['fname']
+    udata.LastName = request.POST['lname']
+    udata.Email=request.POST['email']
+    udata.Contact=request.POST['contact']
+
+    udata.save()
+    return redirect('showpage')

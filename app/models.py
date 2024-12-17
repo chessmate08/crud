@@ -6,6 +6,8 @@ class student(models.Model):
     LastName=models.CharField(max_length=50)
     Email=models.EmailField(max_length=50)
     Contact=models.BigIntegerField()
-
+    
+    
     def __str__(self) :
         return f'{self.FirstName}'
+    
