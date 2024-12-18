@@ -25,20 +25,20 @@
         <th>Delete</th>
       </tr>
     </thead>
-    {% if key1 %}
+    {% if key3 %}
     <tbody>
-      <tr><form action="{% url 'filter' %}" method="post" name="FilterForm">
-        {% csrf_token %}
-            <td><input type="number" pattern='[0-9]+' name="filId" id="" placeholder="⌕ filter:" required></td>
+        <tr>
+          <form action="{% url 'filter' %}" method="post">
+          {% csrf_token %}
+            <td><input type="number" pattern='[0-9]+' name="filId" id="" placeholder="⌕ filter:"></td>
             <td><input type="text" pattern='[a-z]+' name="filFname" id="" placeholder="⌕ filter:"></td>
             <td><input type="text" pattern='[a-z]+' name="filLname" id="" placeholder="⌕ filter:"></td>
-            <td><input type="email" name="filEmail" id="" placeholder="⌕ filter:"></td>
+            <td><input type="email" name="filEmail"  placeholder="⌕ filter:"></td>
             <td><input type="tel" pattern='[0-9]{10}' name="filContact" id="" placeholder="⌕ filter:"></td>
-            <td><input type="submit" value="submit filters"></td>
-      
-      </tr></form>
-      {% for i in key1 %}
-      
+            <td><input type="submit" value="filterView"></td>
+          </form>
+        </tr>
+      {% for i in key3 %}
       <tr>
         
         <td>{{i.id}}</td>

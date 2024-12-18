@@ -7,5 +7,6 @@ urlpatterns = [
     path('showpage/', ShowPage, name='showpage'),
     path('editpage/<int:pk>', EditPage, name='editpage'),
     path('Update/<int:pk>', UpdateData, name='Update'),
-    path('delete/<int:pk>',DeleteData, name='delete' )
+    path('delete/<int:pk>',DeleteData, name='delete' ),
+    path('filter/', filterView, name='filter')
 ]
